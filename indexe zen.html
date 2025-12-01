@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KAMENGE MARKET - Inscription</title>
+    <link rel="stylesheet" href="styles zen.css">
+</head>
+<php>
+<body>
+    <div class="slideshow">
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+    </div>
+    
+    <div class="overlay"></div>
+
+    <header>
+        <div class="marquee">BIENVENUE AU KAMENGE MARKET - INSCRIPTION OUVERTE - NOUVEAU MARCHÉ À KAMENGE</div>
+    </header>
+    <div class="place-counter">
+        <div>Places réservées: <span id="reservedSpots" class="counter-highlight">0</span></div>
+        <div>Places restantes: <span id="remainingSpots" class="counter-highlight">100</span></div>
+    </div>
+
+    <div class="container">
+        <div id="page1" class="page active">
+            <h1>KAMENGE MARKET</h1>
+            <div class="home-content">
+                <p>Le marché de Kamenge ouvre ses portes! Nous offrons des espaces de vente modernes et sécurisés
+                     pour les commerçants locaux. Inscrivez-vous dès maintenant pour réserver votre emplacement 
+                     dans notre nouveau marché dynamique situé au cœur de Kamenge.</p>
+                
+                <div class="market-benefits">
+                    <div class="benefit">
+                        <h3>Emplacement Premium</h3>
+                        <p>Situation stratégique avec grande visibilité</p>
+                    </div>
+                    <div class="benefit">
+                        <h3>Sécurité Renforcée</h3>
+                        <p>Surveillance 24h/24 et accès contrôlé</p>
+                    </div>
+                    <div class="benefit">
+                        <h3>Infrastructures Modernes</h3>
+                        <p>Électricité,eau et WiFi disponibles</p>
+                    </div>
+                    <div class="benefit">
+                        <h3>Promotion Commerciale</h3>
+                        <p>Campagnes marketing pour attirer les clients</p>
+                    </div>
+                </div>
+                
+                <p>Pour réserver votre place dans notre nouveau marché, remplissez notre formulaire d'inscription
+                     en ligne. Les places sont limitées et attribuées selon le principe du premier arrivé,
+                    premier servi.</p>
+            </div>
+            <div class="btn-container">
+                <button class="btn btn-quit">Quitter</button>
+                <button class="btn btn-next" onclick="showPage(2)">S'inscrire</button>
+            </div>
+        </div>
+
+        <!-- Page d'inscription -->
+        <div id="page2" class="page">
+            <h1>FORMULAIRE D'INSCRIPTION</h1>
+            <h2>Informations personnelles</h2>
+            
+            <form id="registrationForm">
+                <div class="form-group">
+                    <label class="required">Nom de famille</label>
+                    <input type="text" name="lastname" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="required">Prénom(s)</label>
+                    <input type="text" name="firstname" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="required">Date de naissance</label>
+                    <input type="date" name="birthdate" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="required">Lieu de naissance</label>
+                    <input type="text" name="birthplace" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="required">Nationalité</label>
+                    <input type="text" name="nationality" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="required">Adresse actuelle</label>
+                    <textarea name="address" rows="3" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label class="required">Numéro de téléphone</label>
+                    <input type="tel" name="phone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="required">Adresse email</label>
+                    <input type="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="required">Type de pièce d'identité</label>
+                    <select name="id_type" required>
+                        <option value="">Sélectionnez...</option>
+                        <option value="cni">Carte Nationale d'identité</option>
+                        <option value="passeport">Passeport</option>
+                        <option value="permit">Permis de conduire</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label class="required">Numéro de la pièce d'identité</label>
+                    <input type="text" name="id_number" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="required">Profession</label>
+                    <input type="text" name="profession" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="required">Genre</label>
+                    <select name="gender" required>
+                        <option value="">Sélectionnez...</option>
+                        <option value="male">Masculin</option>
+                        <option value="female">Féminin</option>
+                        <option value="other">Autres</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label class="required">Photo d'identité</label>
+                    <input type="file" name="photo" accept="image/*" required>
+                </div>
+                <div class="form-group">
+                    <label class="required">Photo de numéro de NIF et Registre de commerce</label>
+                    <input type="file" name="nif" accept="image/*" required>
+                </div>
+            </form>
+            
+            <div class="btn-container">
+                <button class="btn btn-prev" onclick="showPage(1)">Précédent</button>
+                <button class="btn btn-next" onclick="validateForm(3)">Suivant</button>
+            </div>
+        </div>
+
+        <!-- Page de vérification -->
+        <div id="page3" class="page">
+            <h1>VÉRIFICATION DES INFORMATIONS</h1>
+            <h2>Veuillez vérifier vos informations</h2>
+            
+            <div class="verification-grid">
+                <div class="info-card">
+                    <h3>Identité</h3>
+                    <p><strong>Nom:</strong> <span id="verification-lastname"></span></p>
+                    <p><strong>Prénom:</strong> <span id="verification-firstname"></span></p>
+                    <p><strong>Date de naissance:</strong> <span id="verification-birthdate"></span></p>
+                    <p><strong>Lieu de naissance:</strong> <span id="verification-birthplace"></span></p>
+                </div>
+                
+                <div class="info-card">
+                    <h3>Coordonnées</h3>
+                    <p><strong>Adresse:</strong> <span id="verification-address"></span></p>
+                    <p><strong>Téléphone:</strong> <span id="verification-phone"></span></p>
+                    <p><strong>Email:</strong> <span id="verification-email"></span></p>
+                </div>
+                
+                <div class="info-card">
+                    <h3>Détails supplémentaires</h3>
+                    <p><strong>Nationalité:</strong> <span id="verification-nationality"></span></p>
+                    <p><strong>Profession:</strong> <span id="verification-profession"></span></p>
+                    <p><strong>Pièce d'identité:</strong> <span id="verification-idtype"></span> - <span id="verification-idnumber"></span></p>
+                    <p><strong>Genre:</strong> <span id="verification-gender"></span></p>
+                </div>
+            </div>
+            
+            <div>
+                <h3>Photo d'identité</h3>
+                <div class="image-preview">
+                    <img id="photo-preview" src="" alt="Photo d'identité">
+                </div>
+                   <div>
+                <h3>Photo de numéro de NIF et Registre de commerce</h3>
+                <div class="image-preview">
+                    <img id="RC-preview" src="" alt="Photo de NIF et RC">
+                </div>
+            </div>
+            
+            <div class="btn-container">
+                <button class="btn btn-prev" onclick="showPage(2)">Précédent</button>
+                <button class="btn btn-next" onclick="showPage(4)">Suivant</button>
+            </div>
+        </div>
+
+        <!-- Page des produits -->
+        <div id="page4" class="page">
+            <h1>PRODUITS À VENDRE</h1>
+            <h2>Qu'allez-vous vendre au marché?</h2>
+            
+            <div class="form-group">
+                <label class="required">Catégorie principale</label>
+                <select id="product-category" required>
+                    <option value="">Sélectionnez une catégorie...</option>
+                    <option value="fruits">Fruits et Légumes</option>
+                    <option value="viande">Viande et Poisson</option>
+                    <option value="cereals">Céréales et Légumineuses</option>
+                    <option value="cafe">Café et Thé</option>
+                    <option value="artisanat">Artisanat Local</option>
+                    <option value="vetements">Vêtements et Accessoires</option>
+                    <option value="autre">Autre</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label class="required">Description des produits</label>
+                <textarea id="product-description" rows="5" placeholder="Décrivez en détail les produits que vous souhaitez vendre..." required></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label>Produits spécifiques (séparés par des virgules)</label>
+                <textarea id="specific-products" rows="3" placeholder="Ex: chaussures, Tomates, Haricots..."></textarea>
+            </div>
+            
+            <h3>Exemples de produits populaires</h3>
+            <div class="products-list">
+                <div class="product-item">
+                    <div>🍅</div>
+                    <div class="product-details">
+                        <strong>Matériel de constructions</strong>
+                        <p>Fraîches et biologiques</p>
+                    </div>
+                </div>
+                <div class="product-item">
+                    <div>🍌</div>
+                    <div class="product-details">
+                        <strong>Balons et vetments</strong>
+                        <p>Variété de haute qualité</p>
+                    </div>
+                </div>
+                <div class="product-item">
+                    <div>🎋</div>
+                    <div class="product-details">
+                        <strong>Artisanat et autres</strong>
+                        <p>Produits faits main</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="btn-container">
+                <button class="btn btn-prev" onclick="showPage(3)">Précédent</button>
+                <button class="btn btn-next" onclick="validateProducts()">Suivant</button>
+            </div>
+        </div>
+
+        <!-- Page de paiement -->
+        <div id="page5" class="page">
+            <h1>PAIEMENT DE L'INSCRIPTION</h1>
+            <h2>Sélectionnez votre mode de paiement</h2>
+            
+            <div class="payment-methods">
+                <div class="payment-option" onclick="selectPayment(this, 'mobile')">
+                    <div>📱</div>
+                    <strong>Mobile Money</strong><br>                   
+                    <label for=""><strong>numéro de votre teléphone</strong> </label>
+                    <input type="text" placeholder="Entrer ton numéro de téléphone" name="telephn" required>
+                </div>
+                
+                <div class="payment-option" onclick="selectPayment(this, 'card')">
+                    <div>💳</div>
+                    <strong>Carte Bancaire</strong><br>
+                    <label for=""><strong>numéro de la carte</strong></label>
+                    <input type="text" placeholder="Entrer ton numéro de la carte Bancaire" name="numcarte" required>
+                </div>
+                
+                <div class="payment-option" onclick="selectPayment(this, 'cash')">
+                    <div>💵</div>
+                    <strong>Espèces</strong>
+                </div>
+                
+                <div class="payment-option" onclick="selectPayment(this, 'bank')">
+                    <div>🏦</div>
+                    <strong>Virement Bancaire</strong>
+                </div>
+                
+                <div class="payment-option" onclick="selectPayment(this, 'cheque')">
+                    <div>📝</div>
+                    <strong>Chèque</strong>
+                </div>
+            </div>
+            
+            <div id="bankOptions" class="bank-options">
+                <h3>Sélectionnez votre banque</h3>
+                <div class="bank-grid">
+                    <div class="bank-option" onclick="selectBank(this)">
+                        <div>🏦</div>
+                        <strong>CRDB</strong>
+                    </div>
+                    <div class="bank-option" onclick="selectBank(this)">
+                        <div>🏦</div>
+                        <strong>KBC</strong>
+                    </div>
+                    <div class="bank-option" onclick="selectBank(this)">
+                        <div>🏦</div>
+                        <strong>COOPEC</strong>
+                    </div>
+                    <div class="bank-option" onclick="selectBank(this)">
+                        <div>🏦</div>
+                        <strong>ECOBANK</strong>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label class="required">Montant à payer</label>
+                <input type="text" value="25 000 BIF" readonly>
+            </div>
+            
+            <div class="btn-container">
+                <button class="btn btn-prev" onclick="showPage(4)">Précédent</button>
+                <button class="btn btn-next" onclick="processPayment()">Payer maintenant</button>
+            </div>
+        </div>
+
+        <!-- Page de confirmation -->
+        <div id="page6" class="page">
+            <div class="confirmation-content">
+                <div class="confirmation-icon">✅</div>
+                <h2>PAIEMENT RÉUSSI!</h2>
+                <p>Félicitations! Votre inscription au KAMENGE MARKET a été enregistrée avec succès. Votre pai de <strong>25 000 BIF</strong> a été traité.</p>
+                <p>Vous recevrez un email de confirmation avec votre numéro de place dans les prochaines 24 heures.</p>
+                <p>Date d'ouverture du marché: <strong>15 DECEMBRE 2025</strong></p>
+                <p>Merci d'avoir choisi KAMENGE MARKET. Nous avons hâte de vous accueillir!</p>
+                
+                <div class="btn-container">
+                    <button class="btn btn-home" onclick="showPage(1)">Retour à l'accueil</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="conteneur">
+    <footer class="clignote"> FAITE PAR ZEN ZEBEDEE </footer>
+</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
